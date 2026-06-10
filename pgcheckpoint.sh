@@ -1,10 +1,13 @@
 #!/usr/bin/env bash
+# Use: ./pgcheckpoint.sh        -> abre a interface grafica
+#      ./pgcheckpoint.sh --cli  -> abre o menu no terminal
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+cd "$SCRIPT_DIR"
 
 if command -v python3 &>/dev/null; then
-    python3 "$SCRIPT_DIR/pgcheckpoint.py"
+    python3 -m pgcheckpoint "$@"
 elif command -v python &>/dev/null; then
-    python "$SCRIPT_DIR/pgcheckpoint.py"
+    python -m pgcheckpoint "$@"
 else
     echo ""
     echo "[ERRO] Python nao encontrado."
