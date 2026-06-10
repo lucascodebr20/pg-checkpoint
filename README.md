@@ -71,22 +71,22 @@ O código é organizado em camadas, com dependências apontando sempre para dent
 
 ```
 pgcheckpoint/
-  __main__.py            # entry point (GUI por padrão, --cli para terminal)
-  settings.py            # caminhos e constantes
-  container.py           # montagem das dependências (composition root)
-  domain/                # entidades e erros (sem dependências externas)
-    models.py            #   DatabaseConfig, Checkpoint
-    errors.py            #   hierarquia de erros da aplicação
-  infrastructure/        # acesso a recursos externos
-    pg_binaries.py       #   descoberta dos binários do PostgreSQL
-    pg_commands.py       #   execução de pg_dump/pg_restore/psql
-    repositories.py      #   persistência (config.json, dumps, metadata)
-  services/              # regras de negócio (casos de uso)
-    database_service.py  #   cadastrar/listar/remover bancos
-    checkpoint_service.py#   salvar/restaurar/listar/remover checkpoints
-  ui/                    # camada de apresentação
-    cli.py               #   menu interativo no terminal
-    gui.py               #   interface gráfica (Flet)
+  __main__.py              # entry point (GUI por padrão, --cli para terminal)
+  settings.py              # caminhos e constantes
+  container.py             # montagem das dependências (composition root)
+  domain/                  # entidades e erros (sem dependências externas)
+    models.py              #   DatabaseConfig, Checkpoint
+    errors.py              #   hierarquia de erros da aplicação
+  infrastructure/          # acesso a recursos externos
+    pg_binaries.py         #   descoberta dos binários do PostgreSQL
+    pg_commands.py         #   execução de pg_dump/pg_restore/psql
+    repositories.py        #   persistência (config.json, dumps, metadata)
+  services/                # regras de negócio (casos de uso)
+    database_service.py    #   cadastrar/listar/remover bancos
+    checkpoint_service.py  #   salvar/restaurar/listar/remover checkpoints
+  ui/                      # camada de apresentação
+    cli.py                 #   menu interativo no terminal
+    gui.py                 #   interface gráfica (Flet)
 ```
 
 As interfaces (CLI e GUI) usam os mesmos serviços — qualquer nova funcionalidade fica disponível para ambas.
